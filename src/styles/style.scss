@@ -1,0 +1,57 @@
+@import '_mixins';
+@import '_config';
+
+body {
+  background: url('bg.jpg') map-deep-get($config, core, background);
+}
+
+.content {
+  color:#fff;
+  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+  text-align: center;
+  
+}
+
+/**
+ * Base Styles that all icons have. 
+ */
+.icon {
+  display:block;
+  position: relative;
+  margin:15px auto;
+  height: map-deep-get($config, icons, height);
+  width: map-deep-get($config, icons, width);
+  overflow:hidden;
+  
+  &:before, &:after, div:before, div:after {
+    content: "";
+    position:absolute;
+  }
+  /**
+   * How the icon will look on device (rounded corners, box shadow). 
+   * I suggest enabling this.
+   */
+   &.ios {
+       user-select: none;
+       border-radius: 15px;
+       box-shadow:0 1px 2px rgba(0,0,0,.7)
+   }
+   
+   /**
+    * Nostalgia to add gloss over any image. Think < iOS 6 days.
+    */
+    .gloss:before {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 50%;
+      background: rgba(255, 255, 255, .3);
+      z-index: 1;
+      border-radius: 0 0 25px 25px;
+    }
+  }
+  
+  @import 'dj5';
+  @import 'rdio';
+  @import 'google-chrome';
+  @import 'habbo';

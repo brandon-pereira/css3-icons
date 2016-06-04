@@ -1,0 +1,65 @@
+$config: (
+  core:(
+    background: rgb(54,54,54)
+  ),
+  icons:(
+    width: 200px,
+    height: 200px,
+    borderRadius: 15px
+  ),
+  dj5: (
+    background: #f2f2f2,
+    accent: #58ACFA,
+    mouthAccent: #2974BB,
+    headphonePadding: 40px,
+    headphoneWidth: 70px, 
+    muffHeight: 50px,
+    muffWidth: 40px,
+    muffFromOuter: 30px,
+    mouthFromTop: 105px,
+    mouthArc: 40px,
+    mouthSize: 7px
+  ),
+	rdio: (
+		background: #3cb4ff,
+    accent: #fff,
+		outerCircleSize: 140px,
+		innerCircleSize: 80px,
+    lineWidth: 20px,
+    wing: (
+      top: 61px,
+      right: 14px,
+      width: 43px,
+      height: 20px
+    )
+	),
+  chrome: (
+    boxShadow: rgba(0, 0, 0, .09),
+    yellow: #ffe138,
+    green: #5bc15b,
+    red: #E74545,
+    innerCircle: (
+      size:70px,
+      borderWidth: 5px,
+      color: #81b6e2, 
+      borderColor: #fff
+    )
+  ),
+  habbo: (
+    background: #81BEF7,
+    logo: (
+      mainColor: #FFCE00,
+      secondaryColor: #FF6300,
+      borderColor: #000,
+      borderWidth: 2px,
+      vMargin: 35px,
+      hMargin: 40px,
+      slantSize: 20px
+    ),
+    cloud: (
+      color: #fff,
+      height: 35px,
+      width: 53px
+    )
+  )
+);

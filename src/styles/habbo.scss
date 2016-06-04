@@ -1,0 +1,107 @@
+.icon.habbo {
+	background: linear-gradient(transparent, rgba(0, 0, 0, .1)), map-deep-get($config, habbo, background);
+	
+	.cloud {
+		position:absolute;
+		transform: skewY(20deg);
+		&:before, &:after {
+			display: block;
+			background: linear-gradient(transparent, rgba(0, 0, 0, .06)), map-deep-get($config, habbo, cloud, color);
+	    box-shadow: 0 -2px rgba(0, 0, 0, .1);
+		}
+		&:after {
+			border-radius: 50%;
+	    height: map-deep-get($config, habbo, cloud, height);
+	    width: map-deep-get($config, habbo, cloud, width) / 2;
+	    margin-left: 50%;
+	    position: relative;
+		}
+		&:before {
+	    border-radius: 10px;
+	    height: map-deep-get($config, habbo, cloud, height) / 1.8;
+	    width: map-deep-get($config, habbo, cloud, width);
+	    position: absolute;
+			bottom:0;
+		}
+		// TODO: this isnt working
+		&:nth-of-type(1) {
+			left: 1040px;
+			bottom: 20px;
+		}
+		&:nth-of-type(2) {
+	    left: 80px;
+	    bottom: 16px;
+		}
+	}
+	.gloss:before {
+		// Override existing gloss with our better gloss
+		background: rgba(255, 255, 255, .15);
+   	border-radius: 0;
+	}
+	// Logo Placeholder Div
+	.logo {
+    position:absolute;
+    top: map-deep-get($config, habbo, logo, vMargin);
+		bottom: map-deep-get($config, habbo, logo, vMargin); 
+    right: map-deep-get($config, habbo, logo, hMargin); 
+    left: map-deep-get($config, habbo, logo, hMargin);
+    z-index:1;
+				
+		// Orange Parts of Logo
+		&:before, &:after {
+			height: map-deep-get($config, habbo, logo, slantSize);
+			bottom: 0;
+			z-index:5;
+			background: map-deep-get($config, habbo, logo, secondaryColor);
+		}
+		// Bottom Orange Slant
+		&:before {
+			left:map-deep-get($config, habbo, logo, slantSize) / 2;
+			right: map-deep-get($config, habbo, logo, slantSize) / 2;
+			transform: skew(45deg);
+			$width: map-deep-get($config, habbo, logo, borderWidth);
+			$color: map-deep-get($config, habbo, logo, borderColor);
+			box-shadow: inset $width $width $color, 
+									inset 0 $width * -1 $color, 
+									inset $width / -2  0 $color
+		}
+		// Right Orange Slant
+		&:after {
+	    right: (map-deep-get($config, icons, height) - (map-deep-get($config, habbo, logo, vMargin) * 2) - map-deep-get($config, habbo, logo, slantSize)) * -1;
+	    left:100%;
+	    transform:rotate(-90deg) skew(-45deg);
+	    transform-origin:bottom left;
+			$width: map-deep-get($config, habbo, logo, borderWidth);
+			$color: map-deep-get($config, habbo, logo, borderColor);
+	    box-shadow: inset $width * -1 $width $color, 
+									inset 0 $width * -1 $color, 
+									inset $width / 2 0 $color;
+		}
+		
+		div {
+			background: map-deep-get($config, habbo, logo, mainColor);
+	    position:absolute;
+	    top:0;
+	    left:0;
+	    right: map-deep-get($config, habbo, logo, slantSize);
+	    bottom: map-deep-get($config, habbo, logo, slantSize);
+	    box-shadow: inset map-deep-get($config, habbo, logo, borderWidth) 
+												map-deep-get($config, habbo, logo, borderWidth) 
+												map-deep-get($config, habbo, logo, borderColor); 
+			
+			&:before, &:after{
+				top:0;
+				bottom:0;
+				left:50%;
+		    width: map-deep-get($config, habbo, logo, borderWidth);
+				margin-left: map-deep-get($config, habbo, logo, borderWidth) / -2;
+		    background: map-deep-get($config, habbo, logo, borderColor);
+			}
+			&:after {
+		    background: inherit;
+		    top: 30%;
+		    bottom:30%;
+			}
+		}
+	}
+}

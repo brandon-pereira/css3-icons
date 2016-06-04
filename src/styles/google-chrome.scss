@@ -1,0 +1,93 @@
+.icon.google-chrome {
+	// Inner Circle
+	&:before {
+	    background: linear-gradient(transparent, rgba(0, 0, 0, .3)), map-deep-get($config, chrome, innerCircle, color);
+	    height: map-deep-get($config, chrome, innerCircle, size);
+	    width: map-deep-get($config, chrome, innerCircle, size);
+	    z-index: 11;
+			top:50%;
+			left:50%;
+			margin: (- map-deep-get($config, chrome, innerCircle, size) / 2) 0 0 (- map-deep-get($config, chrome, innerCircle, size) / 2);
+	    box-shadow: inset 0 -1px 3px rgba(0, 0, 0, .2),
+									0 0 0 map-deep-get($config, chrome, innerCircle, borderWidth) map-deep-get($config, chrome, innerCircle, borderColor);
+			border-radius: 50%;
+	}
+	// slightly darkened border around logo
+	&:after {
+	    border-radius: inherit;
+	    top: 0;
+	    right: 0;
+	    left: 0;
+	    bottom: 0;
+	    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, .2);
+	    z-index: 9;
+	}
+	div:nth-of-type(1) {
+	 // Yellow
+	 &:after {
+		 background: map-deep-get($config, chrome, yellow);
+		 left: 40%;
+		 right: 0;
+		 bottom: 0;
+		 border-radius:map-deep-get($config, chrome, innerCircle, size) / 4 0 0 0; // circle / 4
+		 $fromTop: (map-deep-get($config, chrome, innerCircle, size) / 2) + map-deep-get($config, chrome, innerCircle, borderWidth);
+		 top: calc(50% - #{$fromTop}); 
+		 z-index: 1;
+		 box-shadow: inset 0 5px rgba(0, 0, 0, .09);
+	 }
+	}
+	// Red Parts
+	div:nth-of-type(2) {
+		// Slanted Area
+		&:before {
+			background: map-deep-get($config, chrome, red);
+			left:0px;
+			right: 40%;
+			$fromBottom: map-deep-get($config, chrome, innerCircle, borderWidth);
+			bottom: calc(50% - #{$fromBottom}); // TODO: This calculation isn't correct.
+			z-index: 6;
+			transform: rotate(40deg);
+			height: map-deep-get($config, chrome, innerCircle, size); // circle size
+			box-shadow: inset 0 -5px rgba(0, 0, 0, .09)
+		}
+		&:after {
+			background: map-deep-get($config, chrome, red);
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			z-index: 0;
+		}
+	}
+	// Green Parts
+	div:nth-of-type(3) {
+		// Slanted Part 
+		&:before {
+			background: map-deep-get($config, chrome, green);
+			left: 0px;
+			$fromRight: map-deep-get($config, chrome, innerCircle, size) / 2 + map-deep-get($config, chrome, innerCircle, borderWidth);
+			right: calc(60% - #{$fromRight});
+			bottom: 0;
+			box-shadow: inset -5px 0 rgba(0, 0, 0, .09);
+			top: 40%;
+			z-index: 5;
+			transform: rotate(20deg);
+		}
+		&:after {
+			content: "";
+			background: map-deep-get($config, chrome, green);
+			border-radius:0px 50px 0 0px; // add border radius to top right to hide
+			position: absolute;
+			left: 0;
+			width: 40%;
+			bottom: 0;
+			top: 50px;
+			z-index: 4;
+		}
+	}
+	&:hover {
+		transition:border-radius .5s, transform .4s;
+		transform: rotate(360deg);
+		border-radius: 50%;
+	}
+}

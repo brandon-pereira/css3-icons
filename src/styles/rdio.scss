@@ -1,0 +1,43 @@
+.icon.rdio {
+  background: map-deep-get($config, rdio, background);
+  // Shared inner / outer circle variables
+  &:before, &:after {
+    top:50%;
+    left:50%;
+    border-radius: 50%;
+  }
+  // outer circle
+  &:before {
+    width: map-deep-get($config, rdio, outerCircleSize);
+    height: map-deep-get($config, rdio, outerCircleSize);
+    margin: (- map-deep-get($config, rdio, outerCircleSize) / 2) 0 0 (- map-deep-get($config, rdio, outerCircleSize) / 2);
+    background: #fff;
+    border-radius: 50%;
+  }
+  // inner circle
+  &:after {
+    width: map-deep-get($config, rdio, innerCircleSize);
+    height: map-deep-get($config, rdio, innerCircleSize);
+    margin: (- map-deep-get($config, rdio, innerCircleSize) / 2) 0 0 (- map-deep-get($config, rdio, innerCircleSize) / 2);
+    background: map-deep-get($config, rdio, background);
+  }
+  div {
+    &:before {
+      $fromRight: map-deep-get($config, rdio, innerCircleSize) / 2;
+      right: calc(50% - #{$fromRight});
+      top: 0;
+      bottom: 50%;
+      width: map-deep-get($config, rdio, lineWidth);
+      background: map-deep-get($config, rdio, background);
+    }
+    &:after {
+      background: #fff;
+      top: map-deep-get($config, rdio, wing, top);
+      right: map-deep-get($config, rdio, wing, right);
+      height: map-deep-get($config, rdio, wing, height);
+      width: map-deep-get($config, rdio, wing, width);
+      transform: rotate(30deg);
+      border-bottom-right-radius: 20px 10px;
+    }
+  }
+}

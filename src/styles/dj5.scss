@@ -1,0 +1,75 @@
+.icon.dj5 {
+  background: linear-gradient(transparent, rgba(0, 0, 0, .3)), map-deep-get($config, dj5, background);
+
+	// Headphone Outer
+	.headphones:before { 
+		z-index: 2;
+		
+		top: map-deep-get($config, dj5, headphonePadding);
+		left: map-deep-get($config, dj5, headphonePadding);
+	  bottom: map-deep-get($config, dj5, headphonePadding);
+		right: map-deep-get($config, dj5, headphonePadding);
+		
+	  border-radius: 50%;
+	  background: linear-gradient(rgba(0, 0, 0, .3), transparent 44%), map-deep-get($config, dj5, accent);
+	  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .5);
+	}
+	
+	// Headphone Inner
+	.headphones:after {
+		top: map-deep-get($config, dj5, headphoneWidth) + 5px; // We add 10 to make it appear center
+		left: map-deep-get($config, dj5, headphoneWidth);
+		right: map-deep-get($config, dj5, headphoneWidth);
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .3)), map-deep-get($config, dj5, background);
+    border-radius: 50px 50px 0 0;
+    box-shadow: 0 -1px rgba(255, 255, 255, .9);
+    z-index: 4;
+	}
+	
+	// Base ear muff markup
+	.ear-muffs:before, .ear-muffs:after {
+    background: linear-gradient(transparent, rgba(0, 0, 0, .2)), map-deep-get($config, dj5, accent);
+    height: map-deep-get($config, dj5, muffHeight);
+    width: map-deep-get($config, dj5, muffWidth);
+    bottom: map-deep-get($config, dj5, headphonePadding);
+    z-index: 3;
+  	box-shadow: 0 1px rgba(255, 255, 255, .6);
+	}
+	// left ear muff
+	.ear-muffs:before {
+		left: map-deep-get($config, dj5, muffFromOuter);
+		border-radius: 20px 0 0 20px;
+	}
+	// right ear muff
+	.ear-muffs:after {
+		right:map-deep-get($config, dj5, muffFromOuter);
+		border-radius: 0 20px 20px 0;
+	}
+	
+	// mouth
+	.mouth {
+		position:absolute;
+    top: map-deep-get($config, dj5, mouthFromTop);
+    width: map-deep-get($config, dj5, mouthArc);
+    height: map-deep-get($config, dj5, mouthArc);
+    z-index: 5;
+    left: 50%;
+    margin-left: - map-deep-get($config, dj5, mouthArc) / 2;
+    border-radius: 50%;
+    transform: rotate(-20deg);
+    box-shadow: 0 map-deep-get($config, dj5, mouthSize) map-deep-get($config, dj5, mouthAccent), 
+								0 map-deep-get($config, dj5, mouthSize) + 1 rgba(255, 255, 255, .7);
+	}
+	
+	.gloss:after {
+		top: map-deep-get($config, dj5, headphoneWidth) + 6px;
+		height: 24px;
+		left: map-deep-get($config, dj5, headphoneWidth);
+		right: map-deep-get($config, dj5, headphoneWidth);
+		// width: map-deep-get($config, dj5, headphonePadding) * 2;
+		background: rgba(255, 255, 255, .3);
+		z-index: 6;
+		border-radius: 50px 50px 0 0;
+	}
+}
