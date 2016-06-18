@@ -42,7 +42,7 @@ var paths = {
 
 gulp.task('default', ['serve']);
 gulp.task('serve', ['build', 'webserver']);
-gulp.task('build', ['extend', 'style', 'script']);
+gulp.task('build', ['extend', 'style', 'script', 'transfer']);
 
 /**
   This function will expand the index file (srcIndex) and 
@@ -107,6 +107,7 @@ gulp.task('webserver', ['watch'], function() {
   return gulp.src(paths.dist.root)
     .pipe(webserver({
       livereload: true, 
+      port: 1234,
       open: true
     }));
 });
